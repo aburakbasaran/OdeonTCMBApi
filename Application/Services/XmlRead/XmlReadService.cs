@@ -1,4 +1,5 @@
-﻿using Application.Exceptions;
+﻿
+using Application.Exceptions;
 using Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace Application.Services.Xml
 
             if (xDoc == null)
                 throw new NotFoundException(uri + " not response for xml loading.");
+
+            if (xDoc.FirstNode == null)
+            {
+                throw new XmlReadException(uri + " xml not created.");
+            }
 
             return Task.FromResult(xDoc);
 

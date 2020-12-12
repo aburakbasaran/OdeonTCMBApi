@@ -22,7 +22,7 @@ namespace Application.Services
         private IXmlFileBuilder _xmlbuilder;
         private ICsvFileBuilder _csvbuilder;
         private readonly TCMBServiceOptions _tcmbServiceOptions;
-        public TCMBService(IXmlRead xmlRead, IGetXmlToObjectWithParam getXmlToObject, IXmlFileBuilder xmlbuilder, ICsvFileBuilder csvbuilder , IOptions<TCMBServiceOptions> tcmbOptions)
+        public TCMBService(IXmlRead xmlRead, IGetXmlToObjectWithParam getXmlToObject, IXmlFileBuilder xmlbuilder, ICsvFileBuilder csvbuilder, IOptions<TCMBServiceOptions> tcmbOptions)
         {
             this._tcmbServiceOptions = tcmbOptions.Value;
             this._xmlRead = xmlRead;
@@ -38,47 +38,31 @@ namespace Application.Services
 
             TCMBXmlOperation xmlOperation;
 
-            try
-            {
-                var tcmbXmlDoc = this._xmlRead.GetDocument(this._tcmbServiceOptions.Url).Result;
+            var tcmbXmlDoc = this._xmlRead.GetDocument(this._tcmbServiceOptions.Url).Result;
 
-                var exchangeRate = this._getXmlToObject.GetExchangeRate(tcmbXmlDoc, currencyCode, unit, rateCurrenyOrderType).Result;
+            var exchangeRate = this._getXmlToObject.GetExchangeRate(tcmbXmlDoc, currencyCode, unit, rateCurrenyOrderType).Result;
 
-                if (exportType == ExportType.XML)
-                    xmlOperation = new TCMBXmlOperation(new TCMBXmlStrategy(this._xmlbuilder));
-                else
-                    xmlOperation = new TCMBXmlOperation(new TCMBCsvStrategy(this._csvbuilder));
+            if (exportType == ExportType.XML)
+                xmlOperation = new TCMBXmlOperation(new TCMBXmlStrategy(this._xmlbuilder));
+            else
+                xmlOperation = new TCMBXmlOperation(new TCMBCsvStrategy(this._csvbuilder));
 
-                return xmlOperation.GetTCMBExchangeRate(exchangeRate);
-            }
-            catch (Exception ex)
-            {
-                throw new NotFoundException("One or more errors occurred");
-            }
+            return xmlOperation.GetTCMBExchangeRate(exchangeRate);
+
         }
 
-        public Task<ResponseDTO<List<ResponseCurrencyDO>>> GetTCMBExchangeRate(CurrencyCodes currencyCode = CurrencyCodes.All, long unit = 0,  RateCurrenyOrderType rateCurrenyOrderType = RateCurrenyOrderType.CrossOrdered)
+        public Task<ResponseDTO<List<ResponseCurrencyDO>>> GetTCMBExchangeRate(CurrencyCodes currencyCode = CurrencyCodes.All, long unit = 0, RateCurrenyOrderType rateCurrenyOrderType = RateCurrenyOrderType.CrossOrdered)
         {
             ResponseDTO<List<ResponseCurrencyDO>> result = new();
 
-            try
-            {
-                var tcmbXmlDoc = this._xmlRead.GetDocument(this._tcmbServiceOptions.Url).Result;
+            var tcmbXmlDoc = this._xmlRead.GetDocument(this._tcmbServiceOptions.Url).Result;
 
-                var exchangeRate = this._getXmlToObject.GetExchangeRate(tcmbXmlDoc, currencyCode, unit, rateCurrenyOrderType).Result;
+            var exchangeRate = this._getXmlToObject.GetExchangeRate(tcmbXmlDoc, currencyCode, unit, rateCurrenyOrderType).Result;
 
-                result.Data = (from cr in exchangeRate.Currencies
-                               select new ResponseCurrencyDO(cr.Isim, cr.ForexBuying, cr.ForexSelling, cr.CurrencyCode)).ToList();
+            result.Data = (from cr in exchangeRate.Currencies
+                           select new ResponseCurrencyDO(cr.Isim, cr.ForexBuying, cr.ForexSelling, cr.CurrencyCode)).ToList();
 
-                result.IsSuccessfull = true;
-
-                return Task.FromResult(result);
-            }
-            catch (Exception ex)
-            {
-                result.IsSuccessfull = false;
-            }
-
+            result.IsSuccessfull = true;
 
             return Task.FromResult(result);
 

@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Exceptions;
+using Application.Interfaces;
 using Domain.Models.TCMB;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Infrastructure.Files
     {
         public byte[] BuildExchangeRatesFile(ExchangeRates records)
         {
+            if (records.Currencies.Count==0)
+                throw new NotFoundException();
+            
+
             using var memoryStream = new MemoryStream();
             using (var sww = new StreamWriter(memoryStream, Encoding.UTF8))
             {
