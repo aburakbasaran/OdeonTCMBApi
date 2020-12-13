@@ -25,6 +25,8 @@ namespace Presentation.DI.Middleware
             catch (NotFoundException ex)
             {
                 //Log.Error($"Response Code: {"323"} Response: {ex.Message} ", ex);
+                // response 
+                throw;
             }
             catch (Exception ex)
             {

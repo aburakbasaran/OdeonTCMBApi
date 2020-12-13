@@ -15,8 +15,8 @@ namespace Infrastructure
     {
         public static IServiceCollection AddTCMBInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<ICsvFileBuilder, CsvFileBuilder>();
-            services.AddScoped<IXmlFileBuilder, XmlFileBuilder>();
+            services.AddSingleton<ICsvFileBuilder, CsvFileBuilder>();
+            services.AddSingleton<IXmlFileBuilder, XmlFileBuilder>();
             services.AddTCMBApplication(configuration);
             return services;
         }

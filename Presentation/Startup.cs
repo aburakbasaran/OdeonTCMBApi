@@ -42,7 +42,7 @@ namespace Presentation
             inf.Title = "TCMB API";
             inf.Description = "TCMB API SWAGGER DOCUMENT";
 
-            services.AddScoped<ITCMBService, TCMBService>();
+        
             services.AddTCMBInfrastructure(Configuration);
          
 
@@ -53,6 +53,7 @@ namespace Presentation
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.UseInlineDefinitionsForEnums();
                 c.IncludeXmlComments(xmlPath);
             });
 

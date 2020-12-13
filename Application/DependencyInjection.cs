@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Application.Services.Xml;
 using Application.Services.XmlToObjectWithParam;
 using Microsoft.Extensions.Configuration;
@@ -10,8 +11,9 @@ namespace Application
     {
         public static IServiceCollection AddTCMBApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IGetXmlToObjectWithParam, GetXmlToObjectWithParam>();
-            services.AddScoped<IXmlRead, XmlReadService>();
+            services.AddSingleton<IGetXmlToObjectWithParam, GetXmlToObjectWithParam>();
+            services.AddSingleton<IXmlRead, XmlReadService>();
+            services.AddSingleton<ITCMBService, TCMBService>();
             return services;
         }
     }
