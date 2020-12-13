@@ -51,10 +51,10 @@ namespace Presentation
             {
                 c.SwaggerDoc("v1", inf);
 
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.UseInlineDefinitionsForEnums();
-                c.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //c.UseInlineDefinitionsForEnums();
+                ////c.IncludeXmlComments(xmlPath);
             });
 
             services.AddControllers();
