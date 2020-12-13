@@ -773,7 +773,8 @@
           "Domain": "1.0.0",
           "Microsoft.Extensions.Configuration": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
-          "Microsoft.Extensions.Options": "5.0.0"
+          "Microsoft.Extensions.Options": "5.0.0",
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "Application.dll": {}
@@ -783,9 +784,6 @@
         }
       },
       "Domain/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
-        },
         "runtime": {
           "Domain.dll": {}
         },

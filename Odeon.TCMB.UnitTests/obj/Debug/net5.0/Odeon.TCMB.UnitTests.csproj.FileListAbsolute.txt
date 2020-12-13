@@ -9,7 +9,6 @@ C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\O
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Odeon.TCMB.UnitTests.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\ref\Odeon.TCMB.UnitTests.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Odeon.TCMB.UnitTests.pdb
-C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -27,7 +26,6 @@ C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\M
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\NSubstitute.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\NuGet.Frameworks.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\abura\Source\Repos\OdeonTCMBApi\Odeon.TCMB.UnitTests\bin\Debug\net5.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
